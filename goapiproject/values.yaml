@@ -1,0 +1,29 @@
+replicaCount: 1
+
+image:
+  repository: myprojectregistry.azurecr.io/goapiproject
+  tag: v1
+  pullPolicy: IfNotPresent
+  pullSecretName: acr-secret  # Name of the image pull secret
+
+service:
+  type: LoadBalancer
+  port: 80
+
+ingress:
+  enabled: false
+
+serviceAccount:
+  create: true
+  name: goapiproject
+
+autoscaling:
+  enabled: false
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
